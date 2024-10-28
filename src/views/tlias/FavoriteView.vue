@@ -92,7 +92,7 @@ export default {
       const gender = this.serachForm.name;
       const page=this.pagePagination.page;
       const pageSize=this.pagePagination.pageSize;
-      axios.get(`http://localhost:8081/emps?name=${name}&phone=${phone}&gender=${gender}&page=${page}&pageSize=${pageSize}&isFavorite=1`).then(res => {
+      axios.get(`http://124.71.86.156:8081/emps?name=${name}&phone=${phone}&gender=${gender}&page=${page}&pageSize=${pageSize}&isFavorite=1`).then(res => {
         this.pagePagination.total = res.data.data.total;
         this.tableData = res.data.data.rows; // 确保赋值给 data
       }).catch(error => {
@@ -101,7 +101,7 @@ export default {
     },
     onDelete: function (id) {
       if (confirm('Are you sure to delete this record?')) {
-        axios.delete(`http://localhost:8081/emps/delete/${id}`)
+        axios.delete(`http://124.71.86.156:8081/emps/delete/${id}`)
             .then(() => {
               alert('Delete success');
               this.requestContact();
@@ -109,7 +109,7 @@ export default {
       }
     },
     onChange: function (id, isFavorite) {
-      axios.get(`http://localhost:8081/emps/changeFavorite?id=${id}&isFavorite=${isFavorite === 0 ? 1 : 0}`).then(() => {
+      axios.get(`http://124.71.86.156:8081/emps/changeFavorite?id=${id}&isFavorite=${isFavorite === 0 ? 1 : 0}`).then(() => {
         alert('change success');
         this.requestContact();
       })

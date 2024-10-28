@@ -188,7 +188,7 @@ export default {
       }
     },
     addData() {
-      axios.put("http://localhost:8081/emps/insert", this.addForm).then(() => {
+      axios.put("http://124.71.86.156:8081/emps/insert", this.addForm).then(() => {
         alert("Add success");
         this.dialogVisible = false;
         this.addForm = {
@@ -201,7 +201,7 @@ export default {
       })
     },
     editData() {
-      axios.post("http://localhost:8081/emps/edit", this.editForm).then(() => {
+      axios.post("http://124.71.86.156:8081/emps/edit", this.editForm).then(() => {
         alert("edit success");
         this.dialogVisible1 = false;
         this.editForm = {
@@ -220,7 +220,7 @@ export default {
       const gender = this.serachForm.gender;
       const page = this.pagePagination.page;
       const pageSize = this.pagePagination.pageSize;
-      axios.get(`http://localhost:8081/emps?name=${name}&phone=${phone}&gender=${gender}&page=${page}&pageSize=${pageSize}`).then(res => {
+      axios.get(`http://124.71.86.156:8081/emps?name=${name}&phone=${phone}&gender=${gender}&page=${page}&pageSize=${pageSize}`).then(res => {
         this.pagePagination.total = res.data.data.total;
         this.tableData = res.data.data.rows; // 确保赋值给 data
       }).catch(error => {
@@ -229,7 +229,7 @@ export default {
     },
     onDelete: function (id) {
       if (confirm('Are you sure to delete this record?')) {
-        axios.delete(`http://localhost:8081/emps/delete/${id}`)
+        axios.delete(`http://124.71.86.156:8081/emps/delete/${id}`)
             .then(() => {
               alert('Delete success');
               this.requestContact();
@@ -237,7 +237,7 @@ export default {
       }
     },
     onChange: function (id, isFavorite) {
-      axios.get(`http://localhost:8081/emps/changeFavorite?id=${id}&isFavorite=${isFavorite === 0 ? 1 : 0}`).then(() => {
+      axios.get(`http://124.71.86.156:8081/emps/changeFavorite?id=${id}&isFavorite=${isFavorite === 0 ? 1 : 0}`).then(() => {
         alert('change success');
         this.requestContact();
       })
