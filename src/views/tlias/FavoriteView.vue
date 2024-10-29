@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form :inline="true" :model="serachForm" class="demo-form-inline">
+    <!-- <el-form :inline="true" :model="serachForm" class="demo-form-inline">
       <el-form-item label="Serach for something">
         <el-input v-model="serachForm.name" placeholder="Name"></el-input>
       </el-form-item>
@@ -17,7 +17,7 @@
       <el-form-item>
         <el-button type="primary" @click="onSearch">Serach</el-button>
       </el-form-item>
-    </el-form>
+    </el-form> -->
     <el-table :data="tableData">
       <el-table-column prop="name" label="Name" width="180"></el-table-column>
       <el-table-column prop="phone" label="Phone Number" width="180"></el-table-column>
